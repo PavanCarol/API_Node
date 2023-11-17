@@ -5,7 +5,7 @@ FROM node:16
 WORKDIR /API
 
 # Copie os arquivos do projeto para o contêiner
-COPY package.json package-lock.json /API/
+COPY ./package.json
 RUN npm install
 
 # Copie o código-fonte do aplicativo para o contêiner
