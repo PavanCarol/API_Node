@@ -17,4 +17,4 @@ EXPOSE 3000
 # Inicie o aplicativo quando o contêiner for iniciado
 
 #APP
-CMD ["/bin/bash", "-c", "node api/index.js"]
+CMD ["/bin/bash", "-c", "node index.js"]
