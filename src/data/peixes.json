@@ -1,0 +1,22 @@
+[
+    {
+        "id":"1",
+        "nome":"Pirarucu",
+        "foto":"https://pbs.twimg.com/media/EKoghU4XUAIy9hV.jpg"
+    },
+    {
+        "id":"2",
+        "nome":"Pacu",
+        "foto":"https://aquaponia-urbana.com/wp-content/uploads/2022/05/Peixe-Pacu-Caracteristicas-Alimentacao-e-Habitat.jpg"
+    },
+    {
+        "id":"3",
+        "nome":"Tilapia",
+        "foto":"https://engepesca.com.br/uploads/imagens/800x600_saiba-tudo-sobre-tilapias-162-8999.jpg"
+    },
+    {
+        "id":"4",
+        "nome":"Peixe-palhaço",
+        "foto":"https://2.bp.blogspot.com/_tV1fF_mYuDk/TFdfYcrX2xI/AAAAAAAAAj4/PLPQ1XeKzdY/s320/images.jpeg"
+    }
+]
