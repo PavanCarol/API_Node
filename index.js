@@ -26,7 +26,7 @@ banco.sync().then(() => {
 });
 
 //Rotas
-app.get("", (res) => {
+app.get("/produto", (res) => {
   res.json({
     message: "Tá rodando a API do peixe",
     AVISO: "PIRARUCU",
