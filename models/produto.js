@@ -1,6 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   const Produto = sequelize.define(
-    "Peixe",
     {
       nome: {
         type: DataTypes.STRING,
@@ -21,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       freezeTableName: true,
-      tableName: "Peixe",
+      tableName: "produtos",
       timestamps: true,
-      createdAt: "dataCeiacao",
-      updateAt: "dataAtualizacao",
+      createdAt: "dataCriacao",
+      updatedAt: "dataAtualizacao",
       version: "versao",
     }
   );
-  return Peixe;
+  return Produto;
 };
