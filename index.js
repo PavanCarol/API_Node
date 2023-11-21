@@ -26,6 +26,13 @@ banco.sync().then(() => {
 });
 
 //Rotas
+app.get("", (res) => {
+  res.json({
+    message: "Tá rodando a API do peixe",
+    AVISO: "PIRARUCU",
+  });
+});
+
 app.get("/produto", async (req, res) => {
   const produtos = await Produto.findAll();
   res.json(produtos);
