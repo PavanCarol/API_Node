@@ -6,6 +6,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      foto: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       descricao: {
         type: DataTypes.TEXT,
         allowNull: true,

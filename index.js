@@ -32,7 +32,7 @@ app.get("/produtos", async (req, res) => {
 });
 
 app.post("/produtos", async (req, res) => {
-  const { nome, descricao, preco } = req.body;
+  const { nome, foto, descricao, preco } = req.body;
   const produtos = {
     nome,
     descricao,
@@ -43,9 +43,9 @@ app.post("/produtos", async (req, res) => {
 
 app.put("/produtos/:id", async (req, res) => {
   const { id } = req.params;
-  const { nome, descricao, preco } = req.body;
+  const { nome, foto, descricao, preco } = req.body;
 
-  await Produto.update({ nome, descricao, preco }, { where: { id } });
+  await Produto.update({ nome, foto, descricao, preco }, { where: { id } });
   const produto = await Produto.findByPk(id);
 
   res.json(produto);
