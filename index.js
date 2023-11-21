@@ -25,7 +25,7 @@ app.get("/produto", async (req, res) => {
 
 app.post("/produto", async (req, res) => {
   const { nome, foto, descricao, preco } = req.body;
-  const produtos = await produto.create( {
+  const produtos = await Produto.create( {
     nome,
     foto,
     descricao,
