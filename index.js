@@ -31,7 +31,7 @@ app.post("/produto", async (req, res) => {
     descricao,
     preco,
   });
-  res.json(produtos);
+  res.json({nome,foto,descricao,preco});
 });
 
 app.put("/produto", async (req, res) => {
