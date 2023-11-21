@@ -26,22 +26,23 @@ banco.sync().then(() => {
 });
 
 //Rotas
-app.get("/produtos", async (req, res) => {
+app.get("/produto", async (req, res) => {
   const produtos = await Produto.findAll();
   res.json(produtos);
 });
 
-app.post("/produtos", async (req, res) => {
+app.post("/produto", async (req, res) => {
   const { nome, foto, descricao, preco } = req.body;
   const produtos = {
     nome,
+    foto,
     descricao,
     preco,
   };
   res.json({ produtos, erro: false, message: "LOUCURA HAHAHA" });
 });
 
-app.put("/produtos/:id", async (req, res) => {
+app.put("/produto/:id", async (req, res) => {
   const { id } = req.params;
   const { nome, foto, descricao, preco } = req.body;
 
@@ -51,7 +52,7 @@ app.put("/produtos/:id", async (req, res) => {
   res.json(produto);
 });
 
-app.delete("/produtos/:id", async (req, res) => {
+app.delete("/produto/:id", async (req, res) => {
   const { id } = req.params;
 
   await Produto.destroy({ where: { id } });

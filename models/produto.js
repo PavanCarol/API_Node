@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
       },
       preco: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.INT,
         allowNull: false,
       },
     },
