@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { Sequelize } = require("sequelize");
+const  Sequelize  = require("sequelize");
 const config = require("./config");
+const produto = require("./models/produto");
 
 const app = express();
 const port = 80;
@@ -9,17 +10,9 @@ const port = 80;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const banco = new Sequelize(
-  config.development.database,
-  config.development.username,
-  config.development.password,
-  {
-    host: config.development.host,
-    dialect: "mysql",
-  }
-);
+const banco = new Sequelize( config.development);
 
-const Produto = banco.define("./models/produto");
+const Produto = banco.define("./models/produto.js");
 
 banco.sync().then(() => {
   console.log("Tá na mão chefe");
@@ -32,16 +25,16 @@ app.get("/produto", async (req, res) => {
 
 app.post("/produto", async (req, res) => {
   const { nome, foto, descricao, preco } = req.body;
-  const produtos = {
+  const produtos = await produto.create( {
     nome,
     foto,
     descricao,
     preco,
-  };
-  res.json({ produtos, erro: false, message: "LOUCURA HAHAHA" });
+  });
+  res.json(produtos);
 });
 
-app.put("/produto/:id", async (req, res) => {
+app.put("/produto", async (req, res) => {
   const { id } = req.params;
   const { nome, foto, descricao, preco } = req.body;
 
@@ -51,7 +44,7 @@ app.put("/produto/:id", async (req, res) => {
   res.json(produto);
 });
 
-app.delete("/produto/:id", async (req, res) => {
+app.delete("/produto", async (req, res) => {
   const { id } = req.params;
 
   await Produto.destroy({ where: { id } });
