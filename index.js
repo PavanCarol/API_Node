@@ -1,8 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const  Sequelize  = require("sequelize");
+const Sequelize = require("sequelize");
 const config = require("./config");
-const produto = require("./models/produto");
 
 const app = express();
 const port = 80;
@@ -10,7 +9,7 @@ const port = 80;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const banco = new Sequelize( config.development);
+const banco = new Sequelize(config.development);
 
 const Produto = banco.define("./models/produto.js");
 
@@ -25,13 +24,8 @@ app.get("/produto", async (req, res) => {
 
 app.post("/produto", async (req, res) => {
   const { nome, foto, descricao, preco } = req.body;
-  const produtos = await Produto.create( {
-    nome,
-    foto,
-    descricao,
-    preco,
-  });
-  res.json({nome,foto,descricao,preco});
+
+  res.json({ nome, foto, descricao, preco });
 });
 
 app.put("/produto", async (req, res) => {
